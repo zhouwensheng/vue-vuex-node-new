@@ -1,0 +1,7 @@
+node_modules
+build
+assets
+dist
+.idea
+npm-debug.log
+.vscode
