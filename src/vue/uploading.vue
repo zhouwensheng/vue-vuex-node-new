@@ -1,9 +1,14 @@
 <template>
     <div class="Email">
-       <form :action="url" method="post" enctype="multipart/form-data">
-            <input type="file" name="file" value="选择jar包"/>
-            <input id="submit_form" type="submit" class="btn btn-success save" value="保存"/>
-        </form>
+        <el-upload
+            class="upload-demo"
+            :action="url"
+            :on-change="handleChange"
+            :file-list="fileList"
+            name="goning">
+            <el-button size="small" type="primary">点击上传</el-button>
+            <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+        </el-upload>
     </div>
 </template>
 <script>
@@ -12,11 +17,32 @@
     export default {
         data(){
             return{
-               url:`${path.fullPath('private')}upload/uploading`
+               url:`${path.fullPath('private')}upload/uploading`,
+               fileList:[]
             }
         },
         methods:{
-           
+            handleChange(file, filelists){
+                console.log(filelists)
+                // let inputID = this.$refs.input;
+                // // console.log(inputID.files[0])
+                // let formdata = new FormData();
+                // let url = `${path.fullPath("private")}upload/uploading`;
+                // formdata.append('file',inputID.files[0]);
+                // formdata.append('rrrr',12232)
+                // console.log(formdata.get('file'))
+                // console.log(formdata.get('rrrr'))
+                // $.ajax({
+                //     url: url,
+                //     type: "POST",
+                //     data:formdata, 
+                //     processData: false,
+                //     contentType: false,
+                //     success: function(data){
+                //         console.log(data)
+                //     }
+                // })
+            }
         },
     }
 </script>

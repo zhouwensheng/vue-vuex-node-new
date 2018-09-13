@@ -12,8 +12,11 @@ import bookparticulars from './vue/bookparticulars.vue';
 import VideoList from './vue/VideoList.vue';
 import Email from './vue/Email.vue';
 import uploading from './vue/uploading.vue';
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 import './css/base.css';
 import './css/iconfont.css';
+Vue.use(ElementUI);
 // import Vuex from 'vuex'
 Vue.use(VueRouter)
 // Vue.use(Vuex)
