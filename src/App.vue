@@ -97,7 +97,7 @@ export default {
   height: 60px;
   line-height: 60px;
   background-color: #fff;
-  z-index: 9999;
+  z-index: 1000;
   border-bottom: 1px solid #ccc;
 }
 .navigation-class-box > .navigation-class-box-div {

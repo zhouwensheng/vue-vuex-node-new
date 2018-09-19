@@ -11,7 +11,11 @@ import book from './vue/book.vue';
 import bookparticulars from './vue/bookparticulars.vue';
 import VideoList from './vue/VideoList.vue';
 import Email from './vue/Email.vue';
-import uploading from './vue/uploading.vue';
+import uploading from './vue/upload/uploading.vue';
+import pictureing from './vue/upload/pictureing.vue';
+import musicing from './vue/upload/musicing.vue';
+import texting from './vue/upload/texting.vue';
+import videoing from './vue/upload/videoing.vue';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import './css/base.css';
@@ -32,7 +36,29 @@ let rowmap=[
    {path:'/bookparticulars/:id',name:'bookparticulars',component:bookparticulars},
    {path:'/VideoList',name:'VideoList',component:VideoList},
    {path:'/Email',name:'Email',component:Email},
-   {path:'/uploading',name:'uploading',component:uploading}
+   {
+     path:'/uploading',
+     name:'uploading',
+     component:uploading,
+     children:[
+       {
+         path:'/pictureing',
+         component:pictureing
+       },
+       {
+         path:'/musicing',
+         component:musicing
+       },
+       {
+         path:'/texting',
+         component:texting
+       },
+       {
+         path:'/videoing',
+         component:videoing
+       }
+     ]
+   }
  ]
 const roo=new VueRouter({
   routes:rowmap
