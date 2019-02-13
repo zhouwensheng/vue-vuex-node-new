@@ -1,18 +1,22 @@
 <template>
     <div>
         <div class="uploading">
-            <el-tabs v-model="activeName" @tab-click="handleClick">
+            <el-tabs v-model="activeName">
                 <el-tab-pane label="上传音乐" name="music">
-                    <router-link to="/musicing"></router-link>
+                    <!-- <router-link to="/musicing"></router-link> -->
+                    <musicing></musicing>
                 </el-tab-pane>
                 <el-tab-pane label="上传图片" name="picture">
-                    <router-link to="/pictureing"></router-link>
+                    <!-- <router-link to="/pictureing"></router-link> -->
+                    <pictureing></pictureing>
                 </el-tab-pane>
                 <el-tab-pane label="上传文本" name="text">
-                    <router-link to="/texting"></router-link>
+                    <!-- <router-link to="/texting"></router-link> -->
+                    <texting></texting>
                 </el-tab-pane>
                 <el-tab-pane label="上传视频" name="video">
-                    <router-link to="/videoing"></router-link>
+                    <!-- <router-link to="/videoing"></router-link> -->
+                    <videoing></videoing>
                 </el-tab-pane>
             </el-tabs>   
         </div>
@@ -22,28 +26,26 @@
 <script>
     import $ from '../../js/$ajax.js';
     import path from '../../js/BasePath.js';
+    import pictureing from './pictureing.vue';
+    import musicing from './musicing.vue';
+    import videoing from './videoing.vue';
+    import texting from './texting.vue';
     export default {
         data(){
             return{
-               url:`${path.fullPath('private')}upload/uploading`,
                fileList:[],
                activeName:'music'
             }
         },
         methods:{
-            handleClick(tab,event){
-                if(tab.name=='music'){
-                    this.$router.push('/musicing');
-                }else if(tab.name=='picture'){
-                    this.$router.push('/pictureing');
-                }else if(tab.name=='text'){
-                    this.$router.push('/texting')
-                }else{
-                    this.$router.push('/videoinng')
-                }
-                
-            }
+
         },
+        components:{
+            'pictureing':pictureing,
+            'musicing':musicing,
+            'videoing':videoing,
+            'texting':texting
+        }
     }
 </script>
 <style>

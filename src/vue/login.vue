@@ -59,18 +59,9 @@
             // 登陆
             getfrom(){
                 let url=`${path.fullPath('private')}users/from`;
-                console.log(4444)
-                // $.ajax({  
-                //     type:"get",  
-                //     url:"http://localhost:3000/showAll",/*url写异域的请求地址*/  
-                //     dataType:"jsonp",/*加上datatype*/  
-                //     jsonpCallback:"cb",/*设置一个回调函数，名字随便取，和下面的函数里的名字相同就行*/  
-                //     success:function(){  
-                    
-                //     }  
-                // });  
                 $.post(url,this.landing).then((data)=>{
                     if(data.success){
+                        AppUtil.Local.setLocal('user',JSON.stringify(data.data))
                         this.$router.push('/index');
                     }
                 })
