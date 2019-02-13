@@ -39,3 +39,17 @@ s.cookie={
         s.cookie.setCookie(cname, "", -1, path, domain);
     }
 }
+s.Local = {
+    getLocal:(key) => {
+        let result = localStorage.getItem(key);
+        if (result == null || result === "" || result === undefined || result === "null") {
+            return false;
+        } else {
+            return JSON.parse(result);
+        }
+    },
+    setLocal:(key,value) => {
+        localStorage.setItem(key, JSON.stringify(value));
+    }
+}
+    

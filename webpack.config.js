@@ -125,7 +125,7 @@ module.exports = {
     host:'local.zhouws.com',
     proxy: {
   "/api": {
-    target: "http://local.zhouws.com:3333",
+    target: "http://116.62.209.16:3333",
     changeOrigin:true,
     pathRewrite: {"^/api" : ""}
   }

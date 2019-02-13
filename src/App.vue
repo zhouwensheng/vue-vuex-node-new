@@ -39,6 +39,16 @@
               上传
             </router-link>
           </li> 
+          <li class="fl">
+            <router-link to="/itself">
+              我
+            </router-link>
+          </li>
+          <li class="fl">
+            <router-link to="/chitchat">
+              聊天
+            </router-link>
+          </li>
         </ul>
       </div>
     </div>
