@@ -56,7 +56,6 @@
 </template>
 <script>
     import $ from '../js/$ajax.js';
-    // import $ from "../js/$ajax.js";
     import path from "../js/BasePath.js";
     import {
         login
@@ -82,7 +81,7 @@
         methods: {
         },
         mounted() {
-          
+          $.get(`${path.fullPath('private')}verification`)
         }
     };
 </script>

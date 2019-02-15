@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import App from './App.vue';
 import VueRouter from 'vue-router';
-import tt from './vue/1.vue';
 import index from './vue/index.vue';
 import katong from './vue/katong.vue';
 import login from './vue/login.vue';
@@ -13,11 +12,6 @@ import VideoList from './vue/VideoList.vue';
 import Email from './vue/Email.vue';
 import chitchat from './vue/chitchat.vue';
 import uploading from './vue/upload/uploading.vue';
-import pictureing from './vue/upload/pictureing.vue';
-import musicing from './vue/upload/musicing.vue';
-import texting from './vue/upload/texting.vue';
-import videoing from './vue/upload/videoing.vue';
-import itself from './vue/itself.vue';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import './css/base.css';
@@ -44,7 +38,7 @@ let rowmap=[
      name:'uploading',
      component:uploading
    },
-   {path:'/itself',name:'itself',component:itself}
+  //  {path:'/itself',name:'itself',component:itself}
  ]
 const roo=new VueRouter({
   routes:rowmap

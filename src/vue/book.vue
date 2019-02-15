@@ -22,7 +22,6 @@
             }
         },
         mounted(){
-            console.log(34234)
             catalogue().then((data)=>{
                 this.book=data.data;
             })

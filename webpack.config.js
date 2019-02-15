@@ -11,7 +11,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       method: `${srcDir}/js/commonmethod.js`,
-      basePath: `${srcDir}/paths/loatBasePath.js`,
+      basePath: `${srcDir}/paths/loatBasePath.js`
     },
     extensions: ['*', '.js', '.vue', '.json']
   },
@@ -43,6 +43,7 @@ module.exports = {
      new HtmlWebpackPlugin({
         filename: 'index.html',
         template: 'index.html',
+        js:[],
         chunksSortMode:'dependency'
     }),
      new ExtractTextPlugin('styles.css'),

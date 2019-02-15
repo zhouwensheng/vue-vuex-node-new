@@ -27,7 +27,6 @@
         },
         methods:{
             getbutton(){
-                console.log(this.Emaildata)
                 Emailpost(this.Emaildata).then((data) => {
                     console.log(data)
                 })

@@ -16,6 +16,7 @@
     "pug": "^2.0.0-rc.4",
     "vue": "^2.4.4",
     "vue-lazyload": "^1.1.4",
+    "vue-socket.io": "^3.0.0",
     "vue-waterfall-easy": "^1.0.8",
     "vuex": "^3.0.1"
   },
@@ -25,6 +26,7 @@
     "not ie <= 8"
   ],
   "devDependencies": {
+    "array-includes": "^3.0.3",
     "axios": "^0.17.1",
     "babel": "^6.23.0",
     "babel-core": "^6.26.0",
@@ -45,24 +47,32 @@
     "express-session": "^1.15.6",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.4",
+    "has": "^1.0.3",
     "html-webpack-plugin": "^3.2.0",
     "is-number": "^7.0.0",
+    "is-windows": "^1.0.2",
+    "nice-try": "^2.0.0",
     "node-sass": "^4.5.3",
+    "object-keys": "^1.1.0",
     "path-exists": "^3.0.0",
+    "path-key": "^2.0.1",
     "sass-loader": "^6.0.7",
     "session-file-store": "^1.2.0",
     "set-value": "^3.0.0",
+    "shebang-command": "^1.2.0",
+    "socket.io": "^2.2.0",
     "socket.io-client": "^2.2.0",
     "underscore": "^1.8.3",
     "url-loader": "^0.6.2",
     "vue-loader": "^13.7.2",
     "vue-router": "^3.0.1",
-    "vue-socket.io": "^3.0.5",
     "vue-template-compiler": "^2.4.4",
     "vue-waterfall-easy": "^1.0.8",
     "vueshowpdf": "^1.1.2",
     "vuex": "^3.0.1",
     "webpack": "^3.12.0",
-    "webpack-dev-server": "^2.9.1"
+    "webpack-dev-server": "^2.9.1",
+    "which": "^1.3.1",
+    "ws": "^6.1.3"
   }
 }

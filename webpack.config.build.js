@@ -11,7 +11,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       method: `${srcDir}/js/commonmethod.js`,
-      basePath: `${srcDir}/paths/devBasePath.js`,
+      basePath: `${srcDir}/paths/devBasePath.js`
     },
     extensions: ['*', '.js', '.vue', '.json']
   },
