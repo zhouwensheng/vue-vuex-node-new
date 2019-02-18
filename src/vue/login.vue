@@ -9,11 +9,11 @@
                       <p>密码 : <input type="password" name='password' v-model='landing.password'></p>
                       <input class="login-input" type="submit" value="登陆" @click='getfrom'/>
                 </div>
-                <p>
+                <!-- <p>
                     <span class="fr" style="color:#3366FF;padding-right: 30px;font-size: 16px;cursor:pointer;" @click='getregister'>注册</span>
-                </p>
+                </p> -->
             </div>
-            <div class="login1" v-else> 
+            <!-- <div class="login1" v-else> 
                     <p><i class="fr" @click='getcountermand()'>X</i></p>
                     <p><span>用户 : </span><input required type="text" v-model='userdata.name'></p>
                     <p> <span>密码 : </span><input required type="password" v-model='userdata.password'></p>
@@ -22,7 +22,7 @@
                     <p><span>邮箱 : </span><input pattern='^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g' v-model='userdata.mailbox'></p>
                     <p><span>性别 : </span>男: <input type="radio"  name="sex" value="男" @click='getradio("m")'> 女: <input type="radio" name="sex" value="女" @click='getradio("w")'> </p>
                     <button @click="getregisterurl">注册</button>
-            </div>
+            </div> -->
       </div>
 </template>
 <script>

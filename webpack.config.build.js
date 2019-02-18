@@ -6,6 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');//可以把css�
 const CopyWebpackPlugin = require('copy-webpack-plugin');//拷贝文件
 const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 const srcDir = path.resolve(process.cwd(),'src');
+// let BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;//可视化工具
 module.exports = {
    resolve: {
     alias: {
@@ -56,6 +57,7 @@ module.exports = {
         compress: { warnings: false},
         mangle: { except: ['$super', '$', 'exports', 'require']}
       }),
+      // new BundleAnalyzerPlugin()//可视化工具
   ],
   module: {
     rules: [
