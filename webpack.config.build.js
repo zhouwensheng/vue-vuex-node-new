@@ -57,6 +57,8 @@ module.exports = {
         compress: { warnings: false},
         mangle: { except: ['$super', '$', 'exports', 'require']}
       }),
+      // extract webpack runtime and module manifest to its own file in order to
+      // prevent vendor hash from being updated whenever app bundle is updated
       // new BundleAnalyzerPlugin()//可视化工具
   ],
   module: {

@@ -1,17 +1,6 @@
 import Vue from 'vue';
 import App from './App.vue';
 import VueRouter from 'vue-router';
-import index from './vue/index.vue';
-import katong from './vue/katong.vue';
-import login from './vue/login.vue';
-import music from './vue/music.vue';
-import musicParticulars from './vue/musicParticulars.vue';
-import book from './vue/book.vue';
-import bookparticulars from './vue/bookparticulars.vue';
-import VideoList from './vue/VideoList.vue';
-import Email from './vue/Email.vue';
-import chitchat from './vue/chitchat.vue';
-import uploading from './vue/upload/uploading.vue';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import './css/base.css';
@@ -22,23 +11,17 @@ Vue.use(VueRouter)
 // Vue.use(Vuex)
 let rowmap=[
    {path:'/',redirect:'login'},
-   {path:'/login',name:'login',component:login},
-   {path:'/index',name:'index',component:index},
-   {path:'/katong',name:'katong',component:katong},
-   {path:'/music',name:'music',component:music},
-   {path:'/musicParticulars/:id',name:'musicParticulars',component:musicParticulars},
-   {path:'/login',name:'login',component:login},
-   {path:'/book',name:'book',component:book},
-   {path:'/bookparticulars/:id',name:'bookparticulars',component:bookparticulars},
-   {path:'/VideoList',name:'VideoList',component:VideoList},
-   {path:'/Email',name:'Email',component:Email},
-   {path:'/chitchat',name:'chitchat',component:chitchat},
-   {
-     path:'/uploading',
-     name:'uploading',
-     component:uploading
-   },
-  //  {path:'/itself',name:'itself',component:itself}
+   {path:'/login',name:'login',component: resolve => require(['./vue/login.vue'], resolve)},
+   {path:'/index',name:'index',component: resolve => require(['./vue/index.vue'], resolve)},
+   {path:'/katong',name:'katong',component: resolve => require(['./vue/katong.vue'], resolve)},
+   {path:'/music',name:'music',component: resolve => require(['./vue/music.vue'], resolve)},
+   {path:'/musicParticulars/:id',name:'musicParticulars',component: resolve => require(['./vue/musicParticulars.vue'], resolve)},
+   {path:'/book',name:'book',component: resolve => require(['./vue/book.vue'], resolve)},
+   {path:'/bookparticulars/:id',name:'bookparticulars',component: resolve => require(['./vue/bookparticulars.vue'], resolve)},
+   {path:'/VideoList',name:'VideoList',component: resolve => require(['./vue/VideoList.vue'], resolve)},
+   {path:'/Email',name:'Email',component: resolve => require(['./vue/Email.vue'], resolve)},
+   {path:'/chitchat',name:'chitchat',component: resolve => require(['./vue/chitchat.vue'], resolve)},
+   {path:'/uploading',name:'uploading',component: resolve => require(['./vue/upload/uploading.vue'], resolve)},
  ]
 const roo=new VueRouter({
   routes:rowmap
