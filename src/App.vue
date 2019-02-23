@@ -4,50 +4,53 @@
       <div class="navigation-class-box-div">
         <img src="src/image/logo.jpg" alt="logo">
         <ul class="fr">
-          <li class="fl">
+          <li class="fl" :class="{'list':clickname == 1}">
             <router-link to="/index">
               首页
             </router-link> 
           </li>
-          <li class="fl">
+          <li class="fl" :class="{'list':clickname == 2}">
             <router-link to="/katong">
               图片
             </router-link>
           </li>
-          <li class="fl">
+          <li class="fl" :class="{'list':clickname == 3}">
             <router-link to="/music">
               音乐
             </router-link>
           </li> 
-          <li class="fl">
+          <li class="fl" :class="{'list':clickname == 4}">
             <router-link to="/book">
               书
             </router-link>
           </li> 
-          <li class="fl">
+          <li class="fl" :class="{'list':clickname == 5}">
             <router-link to="/VideoList">
               视频
             </router-link>
           </li> 
-          <li class="fl">
+          <li class="fl" :class="{'list':clickname == 6}" v-if="jurisdiction.contains('email’')">
             <router-link to="/Email">
               邮箱
             </router-link>
           </li> 
-          <li class="fl">
+          <li class="fl" :class="{'list':clickname == 7}" v-if="jurisdiction.contains('‘self')">
             <router-link to="/uploading">
               上传
             </router-link>
           </li> 
           <li class="fl">
-            <router-link to="/itself">
+            <router-link to="/itself" v-if="jurisdiction.contains('‘self')">
               我
             </router-link>
           </li>
-          <li class="fl">
+          <li class="fl" :class="{'list':clickname == 8}">
             <router-link to="/chitchat">
               聊天
             </router-link>
+          </li>
+          <li class="fl quit" @click="getQuit">
+            注销
           </li>
         </ul>
       </div>
@@ -62,15 +65,41 @@
 </template>
 
 <script>
-import $ from "jquery";
-// import path from "./js/BasePath.js";
+  import $ from './js/$ajax.js';
+  import path from './js/BasePath.js';
 export default {
   data() {
     return {
-      Stick: false
+      Stick: false,
+      clickname:1,
+      jurisdiction:[]
     }
   },
+  watch: {
+      '$route':'getPath'
+  },
   methods: {
+    // 监听路由
+    getPath(data,data2){
+        let name = this.$route.fullPath.split('/')[1];
+        if(name == 'index'){
+            this.clickname = 1;
+        }else if(name == 'katong'){
+            this.clickname = 2;
+        }else if(name == 'music'){
+            this.clickname = 3;
+        }else if(name =='book'){
+            this.clickname = 4;
+        }else if(name =='VideoList'){
+            this.clickname = 5;
+        }else if(name =='Email'){
+            this.clickname = 6;
+        }else if(name =='uploading'){
+            this.clickname = 7;
+        }else if(name =='chitchat'){
+            this.clickname = 8;
+        }
+    },
     // 置顶
     getApplocation() {
       let clear = setInterval(() => {
@@ -84,6 +113,18 @@ export default {
           clearInterval(clear);
         }
       }, 10);
+    },
+    // 退出登录
+    getQuit(){
+        this.$confirm('确认要退出登录？').then(_ => {
+          let url=`${path.fullPath('private')}users/quit`;
+          $.get(url).then((data)=>{
+              if(data.success){
+                localStorage.clear();
+                this.$router.push({name:'login'})
+              }
+          })
+        }).catch(_ => {});
     }
   },
   mounted() {
@@ -94,6 +135,13 @@ export default {
         this.Stick = false;
       }
     });
+    let userInfo = AppUtil.Local.getLocal('user');
+    if(userInfo){
+      if(JSON.parse(userInfo).userinfo){
+        let arr = JSON.parse(userInfo).userinfo;
+        this.jurisdiction = arr.split(',');
+      }
+    }
   }
 };
 </script>
@@ -123,7 +171,7 @@ export default {
 }
 .navigation-class-box > .navigation-class-box-div > ul {
   width: 70%;
-  min-width: 700px;
+  min-width: 800px;
   height: 100%;
 }
 .navigation-class-box > .navigation-class-box-div > ul > li {
@@ -137,6 +185,12 @@ export default {
     
   }
   &:hover a{
+    color:#fff !important;
+  }
+}
+.navigation-class-box > .navigation-class-box-div > ul > .list{
+  background-color:#20a0ff !important;
+  a{
     color:#fff !important;
   }
 }
@@ -191,6 +245,13 @@ h2 {
 }
 a {
   color: #42b983;
+}
+.quit{
+  padding: 0 10px;
+  color: #42b983;
+}
+.quit:hover{
+  color:#fff;
 }
 .Applocation {
   width: 50px;

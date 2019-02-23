@@ -52,4 +52,14 @@ s.Local = {
         localStorage.setItem(key, JSON.stringify(value));
     }
 }
+//判断是否值对应
+Array.prototype.contains = function (obj, obj2) {
+    let i = this.length;
+    while (i--) {
+      if (this[i] === obj || this[i] === obj2) {
+        return true;
+      }
+    }
+    return false;
+};
     

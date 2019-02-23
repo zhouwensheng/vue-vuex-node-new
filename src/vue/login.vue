@@ -83,28 +83,28 @@
                     alert('确认密码不能为空')
                     return;
                 }
-                    if(this.userdata.password!==this.userdata.passwordque){
-                        alert('密码错误')
-                        return;
+                if(this.userdata.password!==this.userdata.passwordque){
+                    alert('密码错误')
+                    return;
+                }
+                var regexps = /^1[3|4|5|8][0-9]\d{4,8}$/;
+                var eiset= /^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g;
+                if(this.userdata.phone&&!regexps.test(this.userdata.phone)){
+                    alert('请输入正确的手机号码')
+                    return;
+                }
+                if(this.userdata.mailbox&&!eiset.test(this.userdata.mailbox)){
+                        alert('请输入正确的邮箱')
+                    return;
+                }
+                let url=`${path.fullPath('private')}users/register`;
+                $.post(url,this.userdata).then((data)=>{
+                    if(data.success){
+                        this.userdata={name:'',password:'',passwordque:'',phone:'',mailbox:'',gender:''};
+                        this.login=true;
+                        alert('注册成功');
                     }
-                    var regexps = /^1[3|4|5|8][0-9]\d{4,8}$/;
-                    var eiset= /^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g;
-                    if(this.userdata.phone&&!regexps.test(this.userdata.phone)){
-                        alert('请输入正确的手机号码')
-                        return;
-                    }
-                    if(this.userdata.mailbox&&!eiset.test(this.userdata.mailbox)){
-                         alert('请输入正确的邮箱')
-                        return;
-                    }
-                    let url=`${path.fullPath('private')}users/register`;
-                    $.post(url,this.userdata).then((data)=>{
-                        if(data.success){
-                            this.userdata={name:'',password:'',passwordque:'',phone:'',mailbox:'',gender:''};
-                            this.login=true;
-                            alert('注册成功');
-                        }
-                    })
+                })
             },
         },
         mounted(){
